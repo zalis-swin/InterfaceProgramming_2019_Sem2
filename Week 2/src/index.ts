@@ -56,7 +56,7 @@ function rainbowify(letters: string) {
     return message;
 }
 
-console.log(rainbowify("hello cruel world"));
+console.log(rainbowify("yeehaw"));
 
 
 
@@ -183,47 +183,47 @@ console.log(rainbowify("hello cruel world"));
 //     .then(responded)
 //     .catch(failure);
 
-interface Geo {
-    lat: number;
-    lng: number;
-}
+// interface Geo {
+//     lat: number;
+//     lng: number;
+// }
 
-interface Address {
-    street: string;
-    suit: string;
-    city: string;
-    zipcode: number;
-    geo: Geo;
-}
+// interface Address {
+//     street: string;
+//     suit: string;
+//     city: string;
+//     zipcode: number;
+//     geo: Geo;
+// }
 
-interface Company {
-    name: string;
-    catchPhrase: string;
-    bs: string;
-}
+// interface Company {
+//     name: string;
+//     catchPhrase: string;
+//     bs: string;
+// }
 
-interface User {
-    id: number;
-    name: string;
-    username: string;
-    email: string;
-    address: Address;
-    phone: number;
-    website: string;
-    company: Company;
-}
+// interface User {
+//     id: number;
+//     name: string;
+//     username: string;
+//     email: string;
+//     address: Address;
+//     phone: number;
+//     website: string;
+//     company: Company;
+// }
 
-function itsWorking(response: AxiosResponse<User[]>){
-    for (let index = 0; index < response.data.length; index++) {
-        let element: User = response.data[index];
-        console.log("Street Name: " + element.address.street + " | Zipcode: " + element.address.zipcode);
-    }
-}
+// function itsWorking(response: AxiosResponse<User[]>){
+//     for (let index = 0; index < response.data.length; index++) {
+//         let element: User = response.data[index];
+//         console.log("Street Name: " + element.address.street + " | Zipcode: " + element.address.zipcode);
+//     }
+// }
 
-function itsNotWorking(response: Error){
-    console.error(response);
-}
+// function itsNotWorking(response: Error){
+//     console.error(response);
+// }
 
-axios.get("https://jsonplaceholder.typicode.com/users")
-.then(itsWorking)
-.catch(itsNotWorking);
+// axios.get("https://jsonplaceholder.typicode.com/user")
+// .then(itsWorking)
+// .catch(itsNotWorking);
