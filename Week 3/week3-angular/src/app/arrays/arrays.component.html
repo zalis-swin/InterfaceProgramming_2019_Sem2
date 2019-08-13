@@ -1,0 +1,21 @@
+
+<h3>My Hero</h3>
+<ul>
+    <li *ngFor="let hero of heroes">
+        {{hero.name}} (Age: {{hero.age}})
+        <button (click) = "removeHero(hero)">x</button>
+    </li>
+</ul>
+Name: <input #heroName type = "text"/>
+Age: <input #heroAge type = "number"/>
+<button (click) = "addHero(heroName.value, heroAge.value)">Add Hero</button>
+
+<h3>Names</h3>
+<ul>
+    <li *ngFor="let name of names">
+        {{name}}
+        <button (click) = "removeName(name)">x</button>
+    </li>
+</ul>
+
+<input #nameInput type = "text"/> <button (click) = "addName(nameInput.value)">Add name</button>
