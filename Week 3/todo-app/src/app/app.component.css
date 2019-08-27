@@ -1,8 +1,49 @@
 button {
     border: 0;
+    margin: 0 0 0 3px;
 }
 
 div {
     display: flex;
-    justify-content: center
+    justify-content: center;
+    margin: 0 0 20px;
+}
+
+#items {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 100%;
+    justify-content: flex-start;
+}
+
+table {
+    width: 100%;
+    empty-cells: show;
+    table-layout: fixed;
+    overflow: hidden;
+    border-collapse: collapse;
+}
+
+th {
+    border-style: solid;
+    border-color: black;
+    padding: 10px;
+}
+td {
+    overflow: hidden;
+    padding: 5px;
+    word-wrap: break-word;
+    border-style: solid;
+    border-color: black;
+}
+
+.clickable {
+    text-align: center;
+    width: 90px;
 }

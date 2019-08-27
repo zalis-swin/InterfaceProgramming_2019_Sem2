@@ -7,7 +7,105 @@
 
 <div>
   <input #todoInput type = "text"/>
-  <button>
+  <button (click) = "addTodo(todoInput.value); todoInput.value = ''">
     Add Item
   </button>
 </div>
+
+<table>
+  <tr>
+    <th class = "clickable">
+      Completed
+    </th>
+    <th>
+      Task
+    </th>
+    <th>
+      Date Created
+    </th>
+    <th>
+      Date Completed
+    </th>
+    <th class = "clickable">
+      Delete
+    </th>
+  </tr>
+  <tr *ngFor = "let item of todolist">
+    <td class = "clickable">
+      <input type = "checkbox" id = "checkbox" [checked] = "item.completed" (change) = "setTodoComplete($event.target.checked, item)">
+    </td>
+    <td>
+      {{item.name}}
+    </td>
+    <td>
+      {{item.dateCreated | date: "EEEE dd LLL yyyy, HH:mm"}}
+    </td>
+    <td>
+      <span *ngIf = "item.completed">
+      {{item.dateCompleted | date: "EEEE dd LLL yyyy, HH:mm"}}
+      </span>
+    </td>
+    <td class = "clickable">
+        <app-todo-info (removeItemEvent)= "removeTodo(item)"></app-todo-info>
+    </td>
+  </tr>
+</table>
+
+<!-- <div id = "items">
+  <div class = "column">
+    Complete
+    <p *ngFor = "let item of todolist">
+      <input type = "checkbox" id = "checkbox" [checked] = "item.completed" (change) = "setTodoComplete($event.target.checked, item)">
+    </p>
+  </div>
+  <div class = "column">
+    Task
+    <p *ngFor = "let item of todolist">
+      {{item.name}}
+    </p>
+  </div>
+  <div class = "column">
+    Date Created
+    <p *ngFor = "let item of todolist">
+        {{item.dateCreated | date: "EEEE dd LLL yyyy, h:mm a"}}
+      </p>
+  </div>
+  <div class = "column">
+    Date Completed
+    <p *ngFor = "let item of todolist">
+      <span *ngIf = "item.completed">
+          {{item.dateCompleted | date: "EEEE dd LLL yyyy, h:mm a"}}
+      </span>
+      </p>
+  </div>
+  <div class = "column">
+    Delete
+    <p *ngFor = "let item of todolist">
+    <app-todo-info (removeItemEvent)= "removeTodo(item)"></app-todo-info>
+    </p>
+  </div>
+</div> -->
+
+<!-- <p *ngFor = "let item of todolist">
+  <input type = "checkbox" id = "checkbox" [checked] = "item.completed" (change) = "setTodoComplete($event.target.checked, item)">
+  {{item.name}} {{item.dateCreated | date: "EEEE dd LLL yyyy, h:mm a"}} <span *ngIf = "item.completed">{{item.dateCompleted | date: "EEEE dd LLL yyyy, h:mm a"}}</span>
+  <app-todo-info (removeItemEvent)= "removeTodo(item)"></app-todo-info>
+</p> -->
+
+<!-- (change) = "completeTodo($event)" -->
+
+<!-- <ul>
+    <li >
+      
+
+    </li>
+  </ul> -->
+
+<!-- <app-todo-info>
+  <ul>
+    <li *ngFor = "let item of todolist">
+      {{item.name}} {{item.dateCreated}}
+
+    </li>
+  </ul>
+</app-todo-info> -->
