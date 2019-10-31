@@ -1,0 +1,11 @@
+#selectButton:disabled {
+    color: red;
+}
+
+#winFrog {
+    font-size: 50px;
+}
+
+#winnerAnnouncement {
+    font-size: 50px;
+}

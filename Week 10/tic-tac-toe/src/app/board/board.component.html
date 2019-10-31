@@ -1,0 +1,26 @@
+<h1>It is
+    <i *ngIf = "player == 'O'" class="fas fa-frog"></i>
+    <i *ngIf = "player == 'X'" class="fas fa-guitar"></i>
+    's turn</h1>
+
+<main>
+    <tile
+        *ngFor = "let tile of tiles; let i = index"
+        [value] = "tile"
+        (click) = "takeTurn(i)">
+    </tile>
+</main>
+
+<h2 *ngIf = "winner">
+        <i *ngIf = "winner == 'O'" class="fas fa-frog"></i>
+        <i *ngIf = "winner == 'X'" class="fas fa-guitar"></i>
+        wins!
+</h2>
+
+<h2 *ngIf = "draw">
+    Draw!
+</h2>
+
+<button id = "roundButton" (click) = "nextRound()">
+    Next Round
+</button>

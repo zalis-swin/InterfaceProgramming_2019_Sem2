@@ -1,0 +1,39 @@
+
+<h1>{{title}}</h1>
+
+<p>
+    Number of rounds: 
+    <input type = "number" [(ngModel)] = "numRounds" id = "roundInput">
+    <button (click) = "selectRounds()" id = "selectButton">
+        Select
+    </button>
+</p>
+
+<p *ngIf = "!amountRounds">
+    No rounds chosen
+</p>
+
+<div *ngIf = "calculateGameWinner()" id = "winnerAnnouncement">
+    <i *ngIf = "gameWinner == 'O'" class="fas fa-frog"> wins the game!</i>
+    <i *ngIf = "gameWinner == 'X'" class="fas fa-guitar"> wins the game!</i>
+    <p *ngIf = "gameWinner == 'Draw'">Draw!</p>
+</div>
+
+<board
+    *ngIf = "amountRounds"
+    (onWin)="winHandling($event)"
+    (roundNumber) = "countRounds($event)"
+    [totalRounds]="amountRounds">
+</board>
+
+<p *ngIf = "amountRounds">
+    Round {{ roundNo }} of {{ numRounds }}
+</p>
+
+<p *ngIf = "guitarWins || frogWins || numDraws">
+    <i class="fas fa-guitar"></i> wins: {{ guitarWins }}
+    <br>
+    <i class="fas fa-frog"></i> wins: {{ frogWins }}
+    <br>
+    Draws: {{ numDraws }}
+</p>
