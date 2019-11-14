@@ -13,14 +13,14 @@
     No rounds chosen
 </p>
 
-<div *ngIf = "calculateGameWinner()" id = "winnerAnnouncement">
+<div *ngIf = "gameWinner" id = "winnerAnnouncement">
     <i *ngIf = "gameWinner == 'O'" class="fas fa-frog"> wins the game!</i>
     <i *ngIf = "gameWinner == 'X'" class="fas fa-guitar"> wins the game!</i>
     <p *ngIf = "gameWinner == 'Draw'">Draw!</p>
 </div>
 
 <board
-    *ngIf = "amountRounds"
+    *ngIf = "amountRounds && !gameWinner"
     (onWin)="winHandling($event)"
     (roundNumber) = "countRounds($event)"
     [totalRounds]="amountRounds">

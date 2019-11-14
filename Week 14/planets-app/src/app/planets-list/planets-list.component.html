@@ -1,0 +1,7 @@
+<div *ngFor = "let planet of planetService.listofPlanets">
+    <planet-detail [planetDetail] = "planet"></planet-detail>
+</div>
+
+<button (click) = "askToSortPlanets()" *ngIf = "planetService.listofPlanets.length">
+    Sort
+</button>

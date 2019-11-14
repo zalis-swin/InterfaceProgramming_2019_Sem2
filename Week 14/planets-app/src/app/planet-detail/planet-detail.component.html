@@ -1,0 +1,23 @@
+<p>
+    Name: <input *ngIf = "editable" type = "text" [(ngModel)] = "planetDetail.name">
+    <span *ngIf = "!editable">{{ planetDetail.name }}</span>
+</p>
+<p>
+    Number of Moons: <input *ngIf = "editable" type = "number" [(ngModel)] = "planetDetail.moons">
+    <span *ngIf = "!editable">{{ planetDetail.moons }}</span>
+</p>
+<p>
+    Distance from Sun: <input *ngIf = "editable" type = "number" [(ngModel)] = "planetDetail.distancefromSun">
+    <span *ngIf = "!editable">{{ planetDetail.distancefromSun }}</span>
+</p>
+
+<button (click) = "askToDeletePlanet(planetDetail)">
+    Delete
+</button>
+<button *ngIf = "!editable" (click) = "showInput(planetDetail)">
+    Edit
+</button>
+
+<button *ngIf = "editable" (click) = "savePlanet(planetDetail)">
+    Save
+</button>
